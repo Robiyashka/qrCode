@@ -1,11 +1,18 @@
 const button = document.querySelector(".button");
 const urlInput = document.querySelector("#url");
 const fileInput = document.querySelector(".file"); // Foydalanuvchi yuklaydigan fayl
-
-function Qrcode(url, color, backgroundColor, isDownload, insideImg) {
+function Qrcode(
+  url,
+  color,
+  backgroundColor,
+  isDownload,
+  insideImg,
+  width = 280,
+  height = 280
+) {
   const qrCode = new QRCodeStyling({
-    width: 280,
-    height: 280,
+    width: width,
+    height: height,
     type: "svg",
     data: url,
     image: insideImg, // Rasm kiritiladi
@@ -28,7 +35,13 @@ function Qrcode(url, color, backgroundColor, isDownload, insideImg) {
     qrCode.download({ name: "qr", extension: "svg" });
   }
 }
-Qrcode("https://qr-code-ten-nu.vercel.app/", "#fff", "#000", false, "../img/scaner_icon.png");
+Qrcode(
+  "https://qr-code-ten-nu.vercel.app/",
+  "#fff",
+  "#000",
+  false,
+  "../img/scaner_icon.png"
+);
 // ** Asosiy Generate tugmasi bosilganda**
 button.addEventListener("click", function () {
   if (fileInput.files.length > 0) {
@@ -42,10 +55,24 @@ button.addEventListener("click", function () {
     Qrcode(urlInput.value, "#000", "#fff", false, "../img/logo-big.png");
   }
 });
-
 // ** Oq rang tugmasi bosilganda**
+window.addEventListener("resize", function () {
+  if (window.screen.availHeight <= 380) {
+    Qrcode("https://qr-code-ten-nu.vercel.app/",
+      "#fff",
+      "#000",
+      false,
+      "../img/scaner_icon.png",200,200);
+  }else{
+    Qrcode("https://qr-code-ten-nu.vercel.app/",
+      "#fff",
+      "#000",
+      false,
+      "../img/scaner_icon.png",280,280);
+  }
+});
 document.querySelector(".white").addEventListener("click", function () {
-    document.querySelector(".black").style.border = "none";
+  document.querySelector(".black").style.border = "none";
   document.querySelector(".white").style.border = "2px solid blue";
   if (fileInput.files.length > 0) {
     let reader = new FileReader();
@@ -59,11 +86,25 @@ document.querySelector(".white").addEventListener("click", function () {
   }
   document.querySelector(".main_box_qrcode").style.backgroundColor = "#000";
 });
-
 // ** Qora rang tugmasi bosilganda**
+window.addEventListener("resize", function () {
+  if (window.screen.availHeight <= 380) {
+    Qrcode("https://qr-code-ten-nu.vercel.app/",
+      "#fff",
+      "#000",
+      false,
+      "../img/scaner_icon.png",200,200);
+  }else{
+    Qrcode("https://qr-code-ten-nu.vercel.app/",
+      "#fff",
+      "#000",
+      false,
+      "../img/scaner_icon.png",280,280);
+  }
+});
 document.querySelector(".black").addEventListener("click", function () {
   document.querySelector(".black").style.border = "2px solid blue";
-  document.querySelector(".white").style.border ="none";
+  document.querySelector(".white").style.border = "none";
   if (fileInput.files.length > 0) {
     let reader = new FileReader();
     reader.onload = function (event) {
@@ -76,7 +117,6 @@ document.querySelector(".black").addEventListener("click", function () {
   }
   document.querySelector(".main_box_qrcode").style.backgroundColor = "#fff";
 });
-
 // ** QR kodni yuklab olish**
 document.querySelector(".download").addEventListener("click", function () {
   if (fileInput.files.length > 0) {
@@ -90,3 +130,34 @@ document.querySelector(".download").addEventListener("click", function () {
     Qrcode(urlInput.value, "#000", "#fff", true, "../img/logo-big.png");
   }
 });
+window.addEventListener("resize", function () {
+  if (window.screen.availHeight <= 380) {
+    Qrcode("https://qr-code-ten-nu.vercel.app/",
+      "#fff",
+      "#000",
+      false,
+      "../img/scaner_icon.png",200,200);
+  }else{
+    Qrcode("https://qr-code-ten-nu.vercel.app/",
+      "#fff",
+      "#000",
+      false,
+      "../img/scaner_icon.png",280,280);
+  }
+});
+window.addEventListener("resize", function () {
+  if (window.screen.availHeight <= 380) {
+    Qrcode("https://qr-code-ten-nu.vercel.app/",
+      "#fff",
+      "#000",
+      false,
+      "../img/scaner_icon.png",200,200);
+  }else{
+    Qrcode("https://qr-code-ten-nu.vercel.app/",
+      "#fff",
+      "#000",
+      false,
+      "../img/scaner_icon.png",280,280);
+  }
+});
+
