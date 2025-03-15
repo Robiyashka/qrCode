@@ -28,6 +28,7 @@ function Qrcode(url, color, backgroundColor, isDownload, insideImg) {
     qrCode.download({ name: "qr", extension: "svg" });
   }
 }
+Qrcode("https://qr-code-ten-nu.vercel.app/", "#fff", "#000", false, "../img/scaner_icon.png");
 // ** Asosiy Generate tugmasi bosilganda**
 button.addEventListener("click", function () {
   if (fileInput.files.length > 0) {
@@ -54,7 +55,7 @@ document.querySelector(".white").addEventListener("click", function () {
     };
     reader.readAsDataURL(fileInput.files[0]);
   } else {
-    Qrcode( "https://qr-code-ten-nu.vercel.app/",urlInput.value, "#fff", "#000", false, "../img/logo-big.png");
+    Qrcode(urlInput.value, "#fff", "#000", false, "../img/logo-big.png");
   }
   document.querySelector(".main_box_qrcode").style.backgroundColor = "#000";
 });
