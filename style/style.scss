@@ -91,7 +91,7 @@ $font-Monda: "Monda";
 
               &:last-of-type {
                 background-color: #000;
-                border-color: #fff;
+                border:2px solid blue;
               }
             }
           }
@@ -154,9 +154,11 @@ $font-Monda: "Monda";
             &::placeholder {
               color: rgba(255, 255, 255, 0.15);
             }
+            &[type="file"] {
+              display: none;
+            }
           }
-
-          button {
+          .button {
             width: 100%;
             max-width: 152px;
             display: block;
@@ -172,6 +174,30 @@ $font-Monda: "Monda";
             background-color: rgba(119, 61, 166, 1);
             cursor: pointer;
             transition: all 0.4s;
+
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+          .button_d {
+            margin-top: 8px;
+            width: 100%;
+            background-color: rgba(119, 61, 166, 1);
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.25rem 0.5rem;
+            cursor: pointer;
+            padding-right: 1rem;
+            font-weight: 600;
+            font-size: 14px;
+            font-family: $font-Monda;
+            font-weight: bold;
+            line-height: 139.6%;
+            white-space: nowrap;
+            border-radius: 8px;
 
             &:hover {
               opacity: 0.8;

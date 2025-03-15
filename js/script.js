@@ -44,6 +44,8 @@ button.addEventListener("click", function () {
 
 // ** Oq rang tugmasi bosilganda**
 document.querySelector(".white").addEventListener("click", function () {
+    document.querySelector(".black").style.border = "none";
+  document.querySelector(".white").style.border = "2px solid blue";
   if (fileInput.files.length > 0) {
     let reader = new FileReader();
     reader.onload = function (event) {
@@ -52,13 +54,15 @@ document.querySelector(".white").addEventListener("click", function () {
     };
     reader.readAsDataURL(fileInput.files[0]);
   } else {
-    Qrcode(urlInput.value, "#fff", "#000", false, "../img/logo-big.png");
+    Qrcode( "https://qr-code-ten-nu.vercel.app/",urlInput.value, "#fff", "#000", false, "../img/logo-big.png");
   }
   document.querySelector(".main_box_qrcode").style.backgroundColor = "#000";
 });
 
 // ** Qora rang tugmasi bosilganda**
 document.querySelector(".black").addEventListener("click", function () {
+  document.querySelector(".black").style.border = "2px solid blue";
+  document.querySelector(".white").style.border ="none";
   if (fileInput.files.length > 0) {
     let reader = new FileReader();
     reader.onload = function (event) {
